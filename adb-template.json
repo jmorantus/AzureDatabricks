@@ -3,14 +3,25 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "location": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "[resourceGroup().location]",
+            "metadata": {
+              "description": "Location for all resources."
+            }
         },
         "workspaceName": {
             "type": "string"
         },
         "tier": {
+            "type": "string",
             "defaultValue": "premium",
-            "type": "string"
+            "allowedValues": [
+               "standard",
+               "premium"
+            ],
+            "metadata": {
+              "description": "The pricing tier of workspace."
+            }
         },
         "tagValues": {
             "type": "object"
