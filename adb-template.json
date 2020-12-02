@@ -1,10 +1,14 @@
 {
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
-    "parameters": {
+    "parameters": {        
         "rgName": {
-        "defaultValue": "databricks-rg",    
-            "type": "string"
+            "type": "string",
+             "defaultValue": "databricks-rg"
+        },
+        "rgLocation": {
+            "type": "string",
+            "defaultValue": "eastus2"
         },
         "location": {
             "type": "string",
@@ -14,7 +18,8 @@
             }
         },
         "workspaceName": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "myadbgbbworkspace"
         },
         "tier": {
             "type": "string",
@@ -36,7 +41,7 @@
          {
             "type": "Microsoft.Resources/resourceGroups",
             "apiVersion": "2018-05-01",
-            "location": "eastus2",
+            "location": "[parameters('rgLocation')]",
             "scope": "/",
             "name": "[parameters('rgName')]",
             "properties": {}
