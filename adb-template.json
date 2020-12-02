@@ -32,6 +32,14 @@
         "managedResourceGroupId": "[concat(subscription().id, '/resourceGroups/', variables('managedResourceGroupName'))]"
     },
     "resources": [
+         {
+            "type": "Microsoft.Resources/resourceGroups",
+            "apiVersion": "2018-05-01",
+            "location": "eastus2",
+            "name": "databricks-rg",
+            "properties": {},
+            "tags": "[parameters('tags')]"
+        },
         {
             "apiVersion": "2018-04-01",
             "location": "[parameters('location')]",
