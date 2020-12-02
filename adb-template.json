@@ -22,9 +22,6 @@
             "metadata": {
               "description": "The pricing tier of workspace."
             }
-        },
-        "tagValues": {
-            "type": "object"
         }
     },
     "variables": {
@@ -36,9 +33,9 @@
             "type": "Microsoft.Resources/resourceGroups",
             "apiVersion": "2018-05-01",
             "location": "eastus2",
+            "scope": "/",
             "name": "databricks-rg",
-            "properties": {},
-            "tags": "[parameters('tags')]"
+            "properties": {}
         },
         {
             "apiVersion": "2018-04-01",
@@ -53,8 +50,7 @@
                 "parameters": {}
             },
             "type": "Microsoft.Databricks/workspaces",
-            "dependsOn": [],
-            "tags": "[parameters('tagValues')]"
+            "dependsOn": []
         }
     ]
 }
